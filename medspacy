@@ -1,0 +1,17 @@
+import spacy
+import medspacy
+
+# Load the MedSpaCy pipeline
+nlp = medspacy.load()
+
+# Process the medical text data
+text = "The patient was diagnosed with pneumonia and prescribed antibiotics."
+doc = nlp(text)
+
+# Print the identified named entities
+for ent in doc.ents:
+    print(ent.text, ent.label_)
+    
+# Print the identified clinical concepts
+for concept in doc._.clinical_concepts:
+    print(concept)
